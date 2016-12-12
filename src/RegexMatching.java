@@ -6,7 +6,7 @@ public class RegexMatching {
         System.out.print(new RegexMatching().isMatch("rahil","r.h.*."));
     }
     public boolean isMatch(String s, String p) {
-        boolean[][] matrix = new boolean[s.length() + 1][ p.length() + 1];
+        boolean[][] matrix = new boolean[s.length() + 1][p.length() + 1];
         matrix[0][0] = true;
         for(int i = 1; i < matrix[0].length; i++){
             if(p.charAt(i - 1) == '*'){

@@ -7,7 +7,17 @@ import java.util.PriorityQueue;
  */
 public class MeetingRooms {
     public static void main(String[] args){
-        //System.out.print(new MeetingRooms().minMeetingRooms());
+        Interval obj = new Interval();
+        Interval obj1 = new Interval();
+        Interval obj2 = new Interval();
+        obj.start = 6;
+        obj.end = 10;
+        obj1.start = 13;
+        obj1.end = 14;
+        obj2.start = 12;
+        obj2.end = 14;
+        Interval[] arr = {obj2, obj1, obj};
+        System.out.print(new MeetingRooms().minMeetingRooms(arr));
     }
     /*
     Total number of meeting rooms required
