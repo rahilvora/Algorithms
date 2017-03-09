@@ -6,38 +6,39 @@ import java.util.HashMap;
  * Created by rahilvora on 10/15/16.
  */
 public class Test {
-    public static void main(String args[]) {
-        String word1 = "hegf";
-        StringBuilder word = new StringBuilder(word1);
-        ArrayList<Character> chs = new ArrayList<Character>();
-        HashMap<Character, Integer> indexMap = new HashMap<>();
-        for(int i=word1.length() -1; i>0; i--) {
-            if(word.charAt(i) > word.charAt(i-1)) {
-                chs.add(word.charAt(i));
-                indexMap.put(word.charAt(i), i);
-                Collections.sort(chs);
-                char temp = '{';
-                for (int j=0;j<chs.size();j++) {
-                    if(chs.get(j) > word.charAt(i-1)) {
-                        temp = chs.get(j);
-                        chs.set(j, '{');
-                        break;
-                    }
-                }
-                if( temp == '{') continue;
-                chs.add(word.charAt(i-1));
-
-                word.setCharAt(indexMap.get(temp), word.charAt(i-1));
-                indexMap.put(word.charAt(i-1),indexMap.get(temp));
-                word.setCharAt(i-1, temp);
-                indexMap.put(word.charAt(i-1), i-1);
-                break;
-
-            } else {
-                chs.add(word.charAt(i));
-                Collections.sort(chs);
-            }
+    public String a(String str){
+        char[] arr1 = str.toCharArray();
+        char[] arr2 = new char[arr1.length];
+        int i = 0, j = arr1.length -1;
+        while(i < arr1.length){
+            arr2[i] = arr1[j];
+            i++;
+            j--;
         }
-        System.out.print(word);
+        return new String(arr2);
+    }
+    public String b(String str1){
+        StringBuffer s = new StringBuffer();
+        StringBuffer answer = new StringBuffer();
+        int i = 0;
+        while(i < str1.length()){
+            if(str1.charAt(i) != ' '){
+                s.append(str1.charAt(i));
+            }
+            else if(str1.charAt(i) == ' ' && s.length() != 0) {
+                answer.append(a(s.toString()));
+                answer.append(' ');
+                s.replace(0, s.length(), "");
+            }
+            else{
+                answer.append(' ');
+            }
+            i++;
+        }
+        if(s.length() != 0) answer.append(a(s.toString()));
+        return answer.toString();
+    }
+    public static void main(String args[]) {
+        new Test().b("Secret Message    test");
     }
 }
