@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.PriorityQueue;
 
 /**
@@ -7,6 +8,7 @@ import java.util.PriorityQueue;
  */
 public class MeetingRooms {
     public static void main(String[] args){
+        HashMap<Integer, Integer[]> m;
         Interval obj = new Interval();
         Interval obj1 = new Interval();
         Interval obj2 = new Interval();
