@@ -10,12 +10,23 @@ public class IsomorphicStrings {
         System.out.print(new IsomorphicStrings().isIsomorphic("eggg","baav"));
     }
     public boolean isIsomorphic(String s1, String s2) {
-        Map<Character, Integer> m1 = new HashMap<>();
-        Map<Character, Integer> m2 = new HashMap<>();
-
-        for(int i = 0; i < s1.length(); i++) {
-            if(m1.put(s1.charAt(i), i) != m2.put(s2.charAt(i), i)) {
-                return false;
+        Map<Character, Character> map = new HashMap<>();
+        if(s1 == null || s1.length()<=1) return true;
+        for(int i = 0; i < s1.length(); i++){
+            char a = s1.charAt(i);
+            char b = s2.charAt(i);
+            if(map.containsKey(a)){
+                if(!map.get(a).equals(b)){
+                    return false;
+                }
+            }
+            else{
+                if(!map.containsKey(b)){
+                    map.put(a,b);
+                }
+                else{
+                    return false;
+                }
             }
         }
         return true;

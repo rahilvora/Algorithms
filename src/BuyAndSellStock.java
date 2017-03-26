@@ -6,7 +6,7 @@ public class BuyAndSellStock {
         int[] prices = {7, 1, 5, 3, 6, 4};
         int[] prices1 = {1, 2, 4};
         int[] prices2 = {2, 1, 2, 0, 1};
-        System.out.print(new BuyAndSellStock().maxProfit2(prices1));
+        System.out.print(new BuyAndSellStock().maxProfit2(prices));
     }
 
     // When only one transaction is allowed
